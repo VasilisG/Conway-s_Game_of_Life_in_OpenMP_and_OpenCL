@@ -403,4 +403,3 @@ void displayInfo(GLint x, GLint y)
 
     glPopMatrix();
 }
-// Tutorial for OpenGL rendering: https://www.youtube.com/watch?v=QKSa0eYlc5o
