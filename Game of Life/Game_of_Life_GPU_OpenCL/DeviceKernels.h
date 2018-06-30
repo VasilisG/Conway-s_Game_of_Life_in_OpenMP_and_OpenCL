@@ -1,33 +1,6 @@
 #ifndef DEVICE_KERNELS_H
 #define DEVICE_KERNELS_H
 
-const char gameOfLife1[] =
-"__kernel void life(                                                                                            \n"
-"   __global int* input,                                                                                        \n"
-"   __global int* output,                                                                                       \n"
-"   const unsigned int height,                                                                                  \n"
-"   const unsigned int width)                                                                                   \n"
-"{                                                                                                              \n"
-"   int i = get_global_id(0);                                                                                   \n"
-"   int rowUp = i - width;                                                                                      \n"
-"   int rowDown = i + width;                                                                                    \n"
-"   bool outOfBounds = (i < width);                                                                             \n"
-"   outOfBounds |= (i > (width * (height-1)));                                                                  \n"
-"   outOfBounds |= (i % width == 0);                                                                            \n"
-"   outOfBounds |= (i % width == width-1);                                                                      \n"
-"   if (outOfBounds) { output[i] = 0; return; }                                                                 \n"
-"   int neighbours = input[rowUp-1] + input[rowUp] + input[rowUp+1];                                            \n"
-"   neighbours += input[i-1] + input[i+1];                                                                      \n"
-"   neighbours += input[rowDown-1] + input[rowDown] + input[rowDown+1];                                         \n"
-"   if (input[i]==1 && (neighbours == 3 || neighbours == 2) || (input[i]==0 && neighbours == 3)){               \n"
-"       output[i] = 1;                                                                                          \n"
-"   }                                                                                                           \n"
-"   else {                                                                                                      \n"
-"       output[i] = 0;                                                                                          \n"
-"   }                                                                                                           \n"
-"}                                                                                                              \n"
-;
-
 const char gameOfLife2[] =
 "inline int getAliveNeighbours(__global int *input, int pos, int rowUp, int rowDown){                           \n"
 "    int aliveNeighbours = input[rowUp-1] + input[rowUp] + input[rowUp+1];                                      \n"
