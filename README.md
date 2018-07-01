@@ -31,6 +31,8 @@ OpenMP is an implementation of multithreading, a method of parallelizing whereby
 
 The section of code that is meant to run in parallel is marked accordingly, with a compiler directive that will cause the threads to form before the section is executed. Each thread has an id attached to it which can be obtained using a function (called omp_get_thread_num()). The thread id is an integer, and the master thread has an id of 0. After the execution of the parallelized code, the threads join back into the master thread, which continues onward to the end of the program.
 
+![alt text](https://github.com/VasilisG/Game-of-Life-in-OpenMP-and-OpenCL/blob/master/Images/OpenMP.png)
+
 By default, each thread executes the parallelized section of code independently. Work-sharing constructs can be used to divide a task among the threads so that each thread executes its allocated part of the code. Both task parallelism and data parallelism can be achieved using OpenMP in this way.
 
 The runtime environment allocates threads to processors depending on usage, machine load and other factors. The runtime environment can assign the number of threads based on environment variables, or the code can do so using functions. The OpenMP functions are included in a header file labelled omp.h in C/C++.
@@ -67,9 +69,65 @@ and for the following grid sizes:
 
 For each grid size, we executed each implementation 10 times for 1000 game iterations and we calculated 10 averages for each time. From these 10 averages we calculated the final average for every implementation in each grid size.
 
+The following diagrams show the update time of each implementation and speedups in relation with the serial implementation respectively:
+
+![alt text](https://github.com/VasilisG/Game-of-Life-in-OpenMP-and-OpenCL/blob/master/Images/times.png)
+
+![alt text](https://github.com/VasilisG/Game-of-Life-in-OpenMP-and-OpenCL/blob/master/Images/speedups.png)
+
+## OpenGL
+
+For data representation, OpenGL was used. The following is a screenshot in a 1024x1024 grid:
+
+![alt text](https://github.com/VasilisG/Game-of-Life-in-OpenMP-and-OpenCL/blob/master/Images/gol_screenshot.png)
+
 ## Built with
 
-* [Codeblocks](http://www.codeblocks.org/) -  C, C++ and Fortran IDE, using GNU GCC 5.1.0 compiler
+The following tools/libraries were used to implement Game of Life:
+
+* [Codeblocks](http://www.codeblocks.org/) -  C, C++ and Fortran IDE
 * [GLUT](https://www.opengl.org/resources/libraries/glut/) - An API for OpenGL 
 
 
+## Deployment
+
+Below are instructions on how to build and run each program:
+
+* Game_of_Life_Serial_CPU
+
+```
+gcc main.cpp –o main -lGL -lGLU –lglut 
+./main
+```
+
+* Game_of_Life_Parallel_CPU
+
+```
+gcc main.cpp –o main -fopenmp -lGL -lGLU –lglut 
+./main
+```
+
+* Game_of_Life_Parallel_CPU_OpenMP_4.0 
+
+```
+gcc main.cpp –o main -fopenmp -lGL -lGLU –lglut 
+./main 
+
+```
+
+* Game_of_Life_GPU_OpenCL
+
+```
+gcc main.cpp –o main –lGL –lGLU –lglut –lOpenCL 
+./main 
+```
+
+## System requirements
+
+* OpenGL 4.2 or higher
+* OpenCL 1.2 or higher
+* GNU GCC 5.1.0 or higher
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/VasilisG/Game-of-Life-in-OpenMP-and-OpenCL/blob/master/LICENSE) file for details.
