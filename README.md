@@ -1,4 +1,4 @@
-# Conway-s_Game_of_Life_in_OpenMP_and_OpenCL
+# Game of Life in OpenMP and OpenCL
 
 The above projects are implementations of Conway's Game of Life for OpenMP, OpenMP 4.0 (SIMD) and OpenCL.
 
