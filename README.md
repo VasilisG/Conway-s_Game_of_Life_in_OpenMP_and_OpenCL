@@ -112,7 +112,6 @@ gcc main.cpp –o main -fopenmp -lGL -lGLU –lglut
 ```
 gcc main.cpp –o main -fopenmp -lGL -lGLU –lglut 
 ./main 
-
 ```
 
 * Game_of_Life_GPU_OpenCL
