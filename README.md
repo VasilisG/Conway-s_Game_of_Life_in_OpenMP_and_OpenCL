@@ -47,6 +47,8 @@ OpenCL views a computing system as consisting of a number of compute devices, wh
 
 In addition to its C-like programming language, OpenCL defines an application programming interface (API) that allows programs running on the host to launch kernels on the compute devices and manage device memory, which is (at least conceptually) separate from host memory. Programs in the OpenCL language are intended to be compiled at run-time, so that OpenCL-using applications are portable between implementations for various host devices. The OpenCL standard defines host APIs for C and C++; third-party APIs exist for other programming languages and platforms such as Python, Java and .NET. An implementation of the OpenCL standard consists of a library that implements the API for C and C++, and an OpenCL C compiler for the compute device(s) targeted.
 
+For more information, see [OpenCL](https://www.khronos.org/opencl/).
+
 ## Tests
 
 Tests were run for the following implementations:
@@ -64,8 +66,6 @@ and for the following grid sizes:
 * 1024x1024
 
 For each grid size, we executed each implementation 10 times for 1000 game iterations and we calculated 10 averages for each time. From these 10 averages we calculated the final average for every implementation in each grid size.
-
-For more information, see [OpenCL](https://www.khronos.org/opencl/).
 
 ## Built with
 
