@@ -53,6 +53,11 @@ For more information, see [OpenCL](https://www.khronos.org/opencl/).
 
 ## Tests
 
+Our system constitutes of the following processing units:
+
+* Intel core i5 4590
+* AMD ASUS R9 270X
+
 Tests were run for the following implementations:
 
 * Serial implementation in CPU
