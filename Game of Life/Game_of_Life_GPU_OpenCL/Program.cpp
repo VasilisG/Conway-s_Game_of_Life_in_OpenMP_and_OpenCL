@@ -69,7 +69,7 @@ void buildProgram(cl_program program, cl_uint num_devices, const cl_device_id *d
 
     case CL_BUILD_PROGRAM_FAILURE:
         printf("Error: Failed to build the program executable.\n");
-        break;
+        //break;
         //size_t logSize;
         //clGetProgramBuildInfo(program, device_list[0], CL_PROGRAM_BUILD_LOG, 0, NULL, &logSize);
         //char *log = (char *)malloc(logSize);
